@@ -4,4 +4,4 @@ Random PGM image generator
 -libgerador contains functions that change the colors of specific elements of the pgm matrix, thus generating forms on the file 
 
 Exemplo de output:
-![image](/sample.pgm))
+![Image](sample.pgm))
