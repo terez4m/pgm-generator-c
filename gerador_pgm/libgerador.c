@@ -22,7 +22,7 @@ void gera_fundo(int altura, int largura){
 
     for (int x = 0; x<altura; x++){
         for (int y = 0; y < largura; y++){
-            cor = alet(230,255);
+            cor = alet(200,255);
             imagem[x][y] = cor;
         }
     }
@@ -62,6 +62,55 @@ void gera_linha(int altura, int largura){
         }
     }
 }
+
+void gera_labirinto(int altura, int largura, int x, int y){
+    static int qtd = 0;
+
+    if(qtd == 500)
+        return;
+    int direcao = rand()%100;
+    int i;
+    int end;
+    
+    /*vai para cima*/
+    if(direcao <= 25){
+        end = alet(x, altura);
+        for(i=x; i< end; i++){
+            x = i;
+            imagem[x][y] = 0;
+        }
+        qtd++;
+        gera_labirinto(altura, largura, x, y);
+    }/*vai para baixo*/
+    else if(direcao > 25 && direcao <= 50){
+        end = alet(0,x);
+        for(i=x; i > end; i--){
+            x = i;
+            imagem[x][y] = 0;
+        }
+        qtd++;
+        gera_labirinto(altura, largura, x, y);
+    }/*vai para esquerda*/
+    else if(direcao > 50 && direcao <= 75){
+        end = alet(0,y);
+        for(i=y; i > end; i--){
+            y = i;
+            imagem[x][y] = 0;
+        }
+        qtd++;
+        gera_labirinto(altura, largura, x, y);
+    }/*vai para direita*/
+    else{
+        end = alet(y, largura);
+        for(i=y; i < largura; i++){
+            y = i;
+            imagem[x][y] = 0;
+        }
+        qtd++;
+        gera_labirinto(altura, largura, x, y);
+    }
+}
+
 
 void gera_retangulo(int altura, int largura){
 

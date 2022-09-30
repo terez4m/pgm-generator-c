@@ -5,14 +5,14 @@
 
 /*programa para gerar imagens PGM contendo 5 retangulos num fundo branco*/
 
-
 int main(){
 
     srand(time(NULL)); 
     gera_fundo(ALTURA,LARGURA);
-    for(int i = 0; i < 50; i++){
-        gera_linha(ALTURA, LARGURA);
-    }
+    int x = alet(0, ALTURA);
+    int y = alet(0, LARGURA);
+    
+    gera_labirinto(ALTURA, LARGURA, x, y);
 
     FILE* pgmimg;
     pgmimg = fopen("pgmimg.pgm", "wb");
