@@ -19,4 +19,6 @@ void gera_labirinto(int altura, int largura, int x, int y);
 
 int nao_da_pra_desenhar(int altura, int largura, int x, int y);
 
+void gera_imagem(int num);
+
 #endif

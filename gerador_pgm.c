@@ -13,27 +13,5 @@ int main(){
     int y = alet(0, LARGURA);
     
     gera_labirinto(ALTURA, LARGURA, x, y);
-
-    FILE* pgmimg;
-    pgmimg = fopen("pgmimg.pgm", "wb");
-  
-    /*Writing Magic Number to the File*/
-    fprintf(pgmimg, "P2\n"); 
-  
-    /* Writing Width and Height*/
-    fprintf(pgmimg, "%d %d\n", LARGURA, ALTURA); 
-  
-    /* Writing the maximum gray value*/
-    fprintf(pgmimg, "255\n"); 
-    int temp = 0;
-    for (int i = 0; i < ALTURA; i++) {
-        for (int j = 0; j < LARGURA; j++) {
-            temp = imagem[i][j];
-  
-            /* Writing the gray values in the 2D array to the file */
-            fprintf(pgmimg, "%d ", temp);
-        }
-        fprintf(pgmimg, "\n");
-    }
-    fclose(pgmimg);
+    gera_imagem(64);
 }
